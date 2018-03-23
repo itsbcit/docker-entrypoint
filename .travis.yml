@@ -7,6 +7,9 @@ deploy:
   provider: releases
   api_key:
     secure: kWfipok2OWBMdUIUZsHn30kexqsLHPvsBetyLf+8hcGztR9LwBQ2CjDANHkDURZHZAtv+oK55CwyFt6amwUns3sDkzNoVQ0gLSnI1obx0WUvi3cGabiOWbaFw7xfqUPDDlDDPJTfH0301F1mYjHzGWVUs3+zVfG5XuV72l/dzxaXjLFT1asUwbJsJBE6ZYm428ogvUlGdfb8kHDlEkKBzzh9490Af4DJ67Ab4F85YJw+McmeH9fd1ek2C/PWQ3md5edenh4fomz2YqnSvrAHRt12xTuzz5wQF/KpyDHFssq85z9gmwPg7m9R0hCFX9UIO1H09i07NoAMoZiphCbxwcn7RJfBm0sgyfzeM1+j4kXkDhLAlLfNyznmBKAQoF3hGAEFhAvJGHpG7swSazEZU13duF5JHf3y+CT2TmMUuePszVGdnBHV7Xs2SN8B993K5IzUCnZsQ4jSlFAS1Fio2VHjG8uLEITFNGNhuzeOp0VebcHch/JdccSwcLC0bEP+NhrllZ82PptmlIyK1QZ1EX3RjTFi8M2nTqSPezW7yaG/s7R1kBFjAQIjGFJr9zH5DtnXzeYkLnwS2W5+Y7cWolKn1euFNzgNekFqK+V+WSmd88hLS7TXmGL4BPYjtSi45cKiBty5ufRsNqICDfC5XCQZtaDcql1Iy8mn7P8fJHU=
-  file: docker-endpoint.tar.gz
+  file:
+      - docker-endpoint.tar.gz
+  skip_cleanup: true
   on:
     repo: itsbcit/docker-entrypoint
+    tags: true
