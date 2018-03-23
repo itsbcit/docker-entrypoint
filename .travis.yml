@@ -1,5 +1,8 @@
+language: bash
+
 before_deploy:
 - tar -czvf docker-endpoint.tar.gz docker-endpoint.sh docker-endpoint.d
+
 deploy:
   provider: releases
   api_key:
