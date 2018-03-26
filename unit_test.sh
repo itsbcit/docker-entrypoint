@@ -15,23 +15,17 @@ case "$1" in
     *)    DENV="-e RUNUSER=${1}"; DUSER="--user ${DOCKER_RUNUID}"; DWHO=$1 ;;
 esac
 
-echo DEBUG: docker run -d ${DENV} ${DUSER} bcit/docker-entrypoint:latest /bin/sh -c \"tail -f /dev/null\"
-
-# Create the Docker container
+# Create test harness Docker container
 container_name=$(docker run -d ${DENV} ${DUSER} bcit/docker-entrypoint:latest /bin/sh -c "tail -f /dev/null")
 
-echo DEBUG: container_name=${container_name}
-
-echo DEBUG: docker exec ${container_name} whoami
-
+# Capture username of container runner
 container_dwho=$(docker exec ${container_name} whoami || exit 0 )
 
-echo DEBUG: dwho=${container_dwho}
-
-# Clean up
+# Clean up harness container
 docker kill $container_name >/dev/null
 docker rm $container_name >/dev/null
 
+# Compare container reported user
 if [ "$container_dwho" = "$DWHO" ];then
     echo Success
 else
