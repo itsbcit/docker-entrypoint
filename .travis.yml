@@ -6,6 +6,7 @@ install:
   - docker build -t bcit/docker-entrypoint .
 
 script:
+  - which bats
   - bash unit_test.sh root
   - bash unit_test.sh none
   - bash unit_test.sh foo
