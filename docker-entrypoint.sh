@@ -1,9 +1,10 @@
 #!/bin/sh
 
-if [ -d ./docker-entrypoint.d ];then
-    for i in ./docker-entrypoint.d/*.sh;do
-        sh $i
-    done
-fi
+set -eo pipefail
+shopt -s nullglob
+
+for f in /docker-entrypoint.d/*.sh; do
+    echo "$0: running $f"; . "$f"
+done
 
 exec "$@"
