@@ -12,4 +12,10 @@ if ! whoami &> /dev/null; then
   else
     echo "Failed to update /etc/group. Not writable." >&2
   fi
+
+  if [ -w /etc/shadow ]; then
+    echo "${RUNUSER}:!!:17420::::::" >> /etc/shadow
+  else
+    echo "Failed to update /etc/shadow. Not writable." >&2
+  fi
 fi
