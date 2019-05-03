@@ -1,4 +1,5 @@
 [ "$RUNUSER" = "none" ] && return
+[ "$RUNUSER" = "root" ] && return
 
 if ! whoami &> /dev/null; then
   if [ -w /etc/passwd ]; then
