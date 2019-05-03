@@ -16,6 +16,7 @@ if ! whoami &> /dev/null; then
   fi
 
   if [ -w /etc/shadow ]; then
+    grep -q "^${RUNUSER}:" /etc/shadow && sed -i "/^${RUNUSER}:/d" /etc/shadow
     echo "${RUNUSER}:!!:17420::::::" >> /etc/shadow
   else
     echo "Failed to update /etc/shadow. Not writable." >&2
