@@ -1,5 +1,3 @@
-# docker-endpoint
+# docker-entrypoint
 
-[![Build Status](https://travis-ci.org/itsbcit/docker-entrypoint.svg?branch=master)](https://travis-ci.org/itsbcit/docker-entrypoint)
-
-Docker entrypoint scripts
+> **Archived.** This repository is no longer maintained. Development continues at [itsbcit/container-entrypoint](https://github.com/itsbcit/container-entrypoint).
